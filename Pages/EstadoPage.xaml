@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tp2MauiApp.Pages.EstadoPage"
+             BackgroundImageSource="fondoapp.jpg"
+             Padding="20">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="30"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
+
+            <!-- Logo institucional -->
+            <Image Source="logoosee1.png"
+                   HeightRequest="100"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,0" />
+
+            <!-- Título -->
+            <Label Text="Buscar trámite por:"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+
+            <!-- Picker de filtros -->
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   Padding="10"
+                   WidthRequest="300">
+                <Picker Title="Seleccione un criterio de búsqueda"
+                        FontSize="16"
+                        TextColor="Black">
+                    <Picker.Items>
+                        <x:String>Número de trámite</x:String>
+                        <x:String>Fecha</x:String>
+                        <x:String>Prestador</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Frame>
+
+            <!-- Buscador Entry (aún no funcional) -->
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   Padding="10"
+                   WidthRequest="300"
+                   BorderColor="Gray">
+                <Entry Placeholder="Ingrese texto a buscar"
+                       PlaceholderColor="Gray"
+                       FontSize="16"
+                       TextColor="Black" />
+            </Frame>
+
+            <!-- Botón Buscar -->
+            <Button Text="Buscar"
+                    BackgroundColor="Magenta"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    WidthRequest="200"
+                    CornerRadius="15" />
+
+            <!-- Tabla demostrativa -->
+            <Frame BackgroundColor="White"
+                   BorderColor="Black"
+                   CornerRadius="10"
+                   Padding="20"
+                   WidthRequest="320"
+                   HeightRequest="160">
+                <Label Text="En esta tabla se verían los trámites filtrados y su estado y detalles."
+                       FontSize="16"
+                       TextColor="Black"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+            </Frame>
+
+            <!-- Botón Volver -->
+            <Button Text="Volver al menú anterior"
+                    BackgroundColor="Purple"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    WidthRequest="320"
+                    CornerRadius="10"
+                    Clicked="OnVolverClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

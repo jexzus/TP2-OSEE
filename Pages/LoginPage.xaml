@@ -1,0 +1,76 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tp2MauiApp.Pages.LoginPage"
+             BackgroundImageSource="fondoapp.jpg">
+    <ScrollView>
+        <Grid Padding="20">
+            <VerticalStackLayout VerticalOptions="Center" 
+                                 HorizontalOptions="Center" 
+                                 Spacing="30">
+                <!-- Logo -->
+                <Image Source="logoosee1.png"
+                       WidthRequest="200"
+                       HeightRequest="100"
+                       HorizontalOptions="Center" />
+
+                <!-- Caja de login traslúcida con bordes redondeables -->
+                <Frame x:Name="LoginBox"
+                       BackgroundColor="#CCFFFFFF"
+                       CornerRadius="25"
+                       Padding="25"
+                       HasShadow="True"
+                       WidthRequest="320"
+                       HorizontalOptions="Center">
+                    <VerticalStackLayout Spacing="20">
+                        <Label Text="LOGIN"
+                               FontAttributes="Bold"
+                               FontSize="24"
+                               HorizontalOptions="Center"
+                               TextColor="Black" />
+
+                        <!-- Campo Usuario -->
+                        <Label Text="Usuario"
+                               FontSize="18"
+                               TextColor="Black"/>
+                        <Frame CornerRadius="12"
+                               Padding="10"
+                               BorderColor="Magenta"
+                               HasShadow="False"
+                               BackgroundColor="White">
+                            <Entry x:Name="usuarioEntry"
+                                   Placeholder="Usuario"
+                                   TextColor="Black"
+                                   BackgroundColor="Transparent"/>
+                        </Frame>
+
+                        <!-- Campo Contraseña -->
+                        <Label Text="Contraseña"
+                               FontSize="18"
+                               TextColor="Black"/>
+                        <Frame CornerRadius="12"
+                               Padding="10"
+                               BorderColor="Magenta"
+                               HasShadow="False"
+                               BackgroundColor="White">
+                            <Entry x:Name="contrasenaEntry"
+                                   Placeholder="Password"
+                                   IsPassword="True"
+                                   TextColor="Black"
+                                   BackgroundColor="Transparent"/>
+                        </Frame>
+
+                        <!-- Botón Ingresar -->
+                        <Button Text="Ingresar"
+                                x:Name="IngresarButton"
+                                Clicked="OnLoginClicked"
+                                BackgroundColor="Magenta"
+                                TextColor="Black"
+                                CornerRadius="20"
+                                FontSize="18"
+                                HeightRequest="50"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

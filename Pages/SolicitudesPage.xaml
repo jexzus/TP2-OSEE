@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tp2MauiApp.Pages.SolicitudesPage"
+             BackgroundImageSource="fondoapp.jpg"
+             Padding="20">
+    <ScrollView>
+        <VerticalStackLayout Spacing="20">
+
+            <!-- Encabezado -->
+            <Image Source="logoosee1.png"
+                   HeightRequest="80"
+                   HorizontalOptions="Center" />
+            <Label Text="Nueva solicitud"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" />
+
+            <!-- DNI -->
+            <Frame CornerRadius="12" BorderColor="Magenta" Padding="10" BackgroundColor="White">
+                <Entry x:Name="DniEntry"
+                       Placeholder="12345678"
+                       PlaceholderColor="LightGray"
+                       TextColor="Black"
+                       Keyboard="Numeric"
+                       FontSize="16"
+                       TextChanged="DniEntry_TextChanged"/>
+            </Frame>
+
+            <!-- Nombre -->
+            <Frame CornerRadius="12" BorderColor="Magenta" Padding="10" BackgroundColor="White">
+                <Entry x:Name="NombreEntry"
+                       Placeholder="Juan"
+                       PlaceholderColor="LightGray"
+                       TextColor="Black"
+                       FontSize="16"
+                       TextChanged="NombreEntry_TextChanged"/>
+            </Frame>
+
+            <!-- Apellido -->
+            <Frame CornerRadius="12" BorderColor="Magenta" Padding="0" BackgroundColor="White">
+                <Entry x:Name="ApellidoEntry"
+                       Placeholder="Pérez"
+                       PlaceholderColor="LightGray"
+                       TextColor="Black"
+                       FontSize="16"
+                       TextChanged="ApellidoEntry_TextChanged"/>
+            </Frame>
+
+            <!-- Trámite -->
+            <Label Text="Trámite para:"
+                   FontSize="16"
+                   TextColor="Purple" />
+
+            <!-- Picker con Grid Layout -->
+            <Frame CornerRadius="12" BorderColor="Magenta" Padding="0" BackgroundColor="White" HeightRequest="40">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Frame táctil invisible que cubre toda el área -->
+                    <Frame Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           BackgroundColor="Transparent"
+                           Padding="10"
+                           HasShadow="False"
+                           BorderColor="Transparent">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPickerFrameTapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Picker x:Name="TramitePicker"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            FontSize="16"
+                            TextColor="Black"
+                            BackgroundColor="Transparent"
+                            Margin="5,0,0,0"
+                            VerticalOptions="Center">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Odontología</x:String>
+                                <x:String>Derivaciones</x:String>
+                                <x:String>Prótesis y ortesis</x:String>
+                                <x:String>Farmacia</x:String>
+                                <x:String>Otros trámites</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <!-- Flecha visual -->
+                    <Label Grid.Column="1"
+                           Text="▼"
+                           FontSize="25"
+                           TextColor="Gray"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           InputTransparent="True"
+                           Margin="0,0,10,0" />
+                </Grid>
+            </Frame>
+
+            <!-- Botón Adjuntar -->
+            <ImageButton Source="adjuntar.png"
+                         HeightRequest="20"
+                         WidthRequest="20"
+                         BackgroundColor="Transparent"
+                         HorizontalOptions="Start"
+                         Clicked="OnAdjuntarClicked" />
+
+            <!-- Comentarios -->
+            <Frame CornerRadius="12" BorderColor="Magenta" Padding="10" BackgroundColor="White" HeightRequest="100">
+                <Editor x:Name="ComentariosEditor"
+                        Placeholder="Agregar comentarios"
+                        PlaceholderColor="LightGray"
+                        TextColor="Black"
+                        FontSize="16" />
+            </Frame>
+
+            <!-- Botón Enviar -->
+            <Button Text="Enviar Solicitud"
+                    Margin="0,10,0,2"
+                    Clicked="OnEnviarSolicitudClicked"
+                    BackgroundColor="MediumSeaGreen"
+                    TextColor="White"
+                    CornerRadius="10"/>
+
+            <!-- Botón Volver -->
+            <Button Text="Volver al menú"
+                    Clicked="OnVolverClicked"
+                    BackgroundColor="Purple"
+                    TextColor="White"
+                    CornerRadius="10"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
